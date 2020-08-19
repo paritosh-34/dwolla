@@ -1,5 +1,6 @@
 from paymentGateway import *
 
+# change these urls according to yours...
 jamiie_account_url = 'https://api-sandbox.dwolla.com/accounts/6b9567e8-825a-4198-be03-e0ee875459ea'
 jamiie_funding_src = 'https://api-sandbox.dwolla.com/funding-sources/d51a0233-6b8c-4f17-bef0-220f4e482554'
 customer_url = 'https://api-sandbox.dwolla.com/customers/4c128018-5dae-47e5-abd1-0eb29cc81c15'
