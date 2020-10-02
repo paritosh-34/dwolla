@@ -36,6 +36,34 @@ def owner_funding_src(request_body):
     print(r.headers['location'])
 
 
+def get_owner_funding_src(account_url):
+    r = app_token.get('%s/funding-sources' % account_url)
+    indented_json = json.dumps(r.body, indent=4, separators=(',', ': '), sort_keys=True)
+    print(indented_json)
+
+
+def initiate_micro_deposits(funding_source_url):
+    r = app_token.post('%s/micro-deposits' % funding_source_url)
+    indented_json = json.dumps(r.body, indent=4, separators=(',', ': '), sort_keys=True)
+    print(indented_json)
+
+
+def verify_micro_deposits(funding_source_url):
+    request_body = {
+        'amount1': {
+            'value': '0.03',
+            'currency': 'USD'
+        },
+        'amount2': {
+            'value': '0.09',
+            'currency': 'USD'
+        }
+    }
+    r = app_token.post('%s/micro-deposits' % funding_source_url, request_body)
+    indented_json = json.dumps(r.body, indent=4, separators=(',', ': '), sort_keys=True)
+    print(indented_json)
+
+
 def get_customers(limit):
     r = app_token.get('customers', {'limit': limit})
     indented_json = json.dumps(r.body, indent=4, separators=(',', ': '), sort_keys=True)
