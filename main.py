@@ -3,7 +3,7 @@ from utilFunctions import *
 # change these urls according to yours...
 jamiie_account_url = 'https://api-sandbox.dwolla.com/accounts/6b9567e8-825a-4198-be03-e0ee875459ea'
 jamiie_funding_src = "https://api-sandbox.dwolla.com/funding-sources/5d09b038-c2a3-4f29-a7ac-6b9559f75043"
-customer_url = 'https://api-sandbox.dwolla.com/customers/a189d0f5-04eb-4e32-b910-3c9c07691ded'
+customer_url = 'https://api-sandbox.dwolla.com/customers/c2032b7d-0456-48ae-ba7b-020c401f882c'
 customer_url2 = "https://api-sandbox.dwolla.com/customers/8fec57ed-03b0-4395-a7ac-89d51a079494"
 document_url = 'https://api-sdandbox.dwolla.com/documents/b20b6cc1-fb1c-48aa-b699-ef3d0d892175'
 funding_src = "https://api-sandbox.dwolla.com/funding-sources/7b933cb8-5ade-48f7-a1ce-f2666a12f810"
@@ -17,8 +17,8 @@ jamiie_account = {
 
 customer_details = request_body = {
     'firstName': 'Batisddhah',
-    'lastName': 'Paritoddshah',
-    'email': 'batishparitddoashh2@gmail.com',
+    'lastName': 'Paritoddshah2',
+    'email': 'batishphassasdsd22@gmail.com',
     'type': 'personal',
     'address1': '99-99 33rd St',
     'city': 'Some City',
@@ -135,7 +135,7 @@ mass_payment_body = {
 # create_customer(customer_details)
 # customer_status(customer_url)
 # get_customers(10)
-# upload_customer_documents(jamiie_account_url)
+upload_customer_documents(customer_url)
 # get_iav_token(customer_url)
 # retrieve_funding_src(funding_srdwc)
 # initiate_transfer(transfer_body)

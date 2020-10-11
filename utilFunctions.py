@@ -1,6 +1,7 @@
 import dwollav2
 import os
 import json
+import urllib.request
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -74,6 +75,7 @@ def create_customer(request_body):
     r = app_token.post('customers', request_body)
     indented_json = json.dumps(r.body, indent=4, separators=(',', ': '), sort_keys=True)
     print(indented_json)
+    print(r.headers)
     print(r.headers['location'])
 
 
@@ -85,7 +87,10 @@ def customer_status(url):
 
 
 def upload_customer_documents(url):
-    r = app_token.post('%s/documents' % url, file=open('NewLogo.png', 'rb'), documentType='license')
+    img_url = "https://jamiie-user-images.s3.amazonaws.com/DocumentImages/919816456565.jpg"
+    filename = img_url.split("/")[-1]
+    urllib.request.urlretrieve(img_url, filename)
+    r = app_token.post('%s/documents' % url, file=open(filename, 'rb'), documentType='license')
     indented_json = json.dumps(r.body, indent=4, separators=(',', ': '), sort_keys=True)
     print(indented_json)
     print(r.headers['location'])
