@@ -86,7 +86,19 @@ def customer_status(url):
     print(r.body['status'])
 
 
-def upload_customer_documents(url):
+def upload_customer_documents(url,img_url,documentType):
+    filename = img_url.split("/")[-1]
+    print("url",url)
+    print("img_url",img_url)
+    urllib.request.urlretrieve(img_url, filename)
+    print("app_token",app_token)
+    r = app_token.post('%s/documents' % url, file=open(filename, 'rb'), documentType=documentType)
+    indented_json = json.dumps(r.body, indent=4, separators=(',', ': '), sort_keys=True)
+    print(indented_json)
+    print(r.headers['location'])
+
+
+def upload_customer_documents2(url):
     img_url = "https://jamiie-user-images.s3.amazonaws.com/DocumentImages/919816456565.jpg"
     filename = img_url.split("/")[-1]
     urllib.request.urlretrieve(img_url, filename)
