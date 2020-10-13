@@ -117,4 +117,4 @@ mass_payment_body = {
 # initiate_transfer(transfer_body)
 
 ## Mass payments
-mass_payments(mass_payment_body)
+# mass_payments(mass_payment_body)

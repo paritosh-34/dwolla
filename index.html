@@ -12,15 +12,17 @@
         type="button"
         id="start"
         value="Add Bank"
-        onclick="execute('CQatosFymkjU2iWUxjILN5xna4x4sE64MlTWuezQ1cZZjgFfok')"
+        onclick="execute('sandbox', 'fOLj94Z0PiloAkGJhASDcdADECGLTkJ99H1psBvSKZ9YHRhoPc', '8146990621', 'https://example.com')"
       />
     </div>
 
     <div id="iavContainer"></div>
 
     <script type="text/javascript">
-      function execute(iavToken) {
-        dwolla.configure("sandbox");
+      function execute(env, iavToken, phone, url) {
+        console.log(env, iavToken, phone, url);
+
+        dwolla.configure(env);
         dwolla.iav.start(
           iavToken,
           {
@@ -38,6 +40,19 @@
                 " -- Response: " +
                 JSON.stringify(res)
             );
+            const returnJson = {
+              success: err ? false : true,
+              data: err ? err : res,
+              phone: phone,
+            };
+
+            fetch(url, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(returnJson),
+            });
           }
         );
       }
