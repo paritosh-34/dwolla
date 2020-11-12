@@ -114,6 +114,7 @@ def get_iav_token(url):
     indented_json = json.dumps(r.body, indent=4, separators=(',', ': '), sort_keys=True)
     print(indented_json)
     print(r.body['token'])
+    return r.body['token']
 
 
 def retrieve_funding_src(funding_src):

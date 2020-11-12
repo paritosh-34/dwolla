@@ -6,18 +6,8 @@
     <title>Payment Gateway</title>
     <script src="https://cdn.dwolla.com/1/dwolla.js"></script>
   </head>
-  <body>
-    <div id="mainContainer">
-      <input
-        type="button"
-        id="start"
-        value="Add Bank"
-        onclick="execute('sandbox', 'fOLj94Z0PiloAkGJhASDcdADECGLTkJ99H1psBvSKZ9YHRhoPc', '8146990621', 'https://example.com')"
-      />
-    </div>
-
-    <div id="iavContainer"></div>
-
+  <body onload="execute('{{env}}', '{{token}}', '{{phone}}', 'https://jamiie.anukai.com/payments/fundingsrc')">
+    <div id="iavContainer" class="hover"></div>
     <script type="text/javascript">
       function execute(env, iavToken, phone, url) {
         console.log(env, iavToken, phone, url);

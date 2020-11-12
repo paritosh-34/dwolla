@@ -112,7 +112,7 @@ mass_payment_body = {
 # customer_status(customer_url)
 # get_customers(10)
 # upload_customer_documents(customer_url, "https://jamiie-user-images.s3.amazonaws.com/DocumentImages/919816456565.jpg", "license")
-# get_iav_token(customer_url)
+get_iav_token(customer_url)
 # retrieve_funding_src(funding_srdwc)
 # initiate_transfer(transfer_body)
 
